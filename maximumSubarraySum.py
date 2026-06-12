@@ -10,17 +10,12 @@
 def maximumSubarraySum(nums: list, k: int):
     max_sum = 0
     for i in range(len(nums)-k+1):
-        sub_array = []
-        if i + k <= len(nums):
-            for n in range(k):
-                sub_array.append(nums[i+n]) 
-        sub_array = set(sub_array)
-        print(sub_array)
-        if max_sum < sum(sub_array):
-            max_sum = sum(sub_array)
+        sub_array = nums[i:i+k]
+        if len(sub_array) == len(set(sub_array)):
+            max_sum = max(max_sum, sum(sub_array))
     return max_sum
 
 
 if __name__ == "__main__":
-    nums = [1,5,4,2,9,9,9]
+    nums = [9,9,9,1,2,3]
     print(maximumSubarraySum(nums, 3))
