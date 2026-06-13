@@ -2,14 +2,11 @@
 # Return 0 if no such subarray exists.
 
 def maximumSubarraySum(nums: list, k: int) -> int:
-    max_sum = None
+    max_sum = 0
     for i in range(len(nums) - k + 1):
         sub_array = nums[i:i+k]
         if len(sub_array) == len(set(sub_array)):
-            s = sum(sub_array)
-            max_sum = s if max_sum is None else max(max_sum, s)
-    return max_sum if max_sum is not None else 0
+            max_sum = max(max_sum, sum(sub_array))
+    return max_sum
 
-
-if __name__ == "__main__":
-    print(maximumSubarraySum([9, 9, 9, 1, 2, 3], 3))
+# TODO: use a dict to optimized
