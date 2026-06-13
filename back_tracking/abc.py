@@ -1,7 +1,7 @@
-ls = ['A', 'B', 'C']
+ls = ['A', 'B', 'C', 'D']
 
 def backtrack(path = None):
-    if path == None:
+    if path is None:
         path = []
         
     if len(path) == len(ls):
@@ -16,5 +16,5 @@ def backtrack(path = None):
             
     return path
             
-backtrack()    
+backtrack()
     
